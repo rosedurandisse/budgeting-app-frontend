@@ -23,9 +23,17 @@ function Transactions() {
     );
   });
 
+  const transactionTotal = transactions.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.amount,
+    0
+  );
+
   return (
     <div>
-      <ul>{listedTransaction}</ul>
+      <p>Grand total: ${transactionTotal}</p>
+      <div>
+        <ul>{listedTransaction}</ul>
+      </div>
     </div>
   );
 }
