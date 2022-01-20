@@ -34,7 +34,7 @@ function TransactionDetails() {
           <button>Back</button>
         </Link>
 
-        <Link to={`/transactions/${index}/edit"`}>
+        <Link to={`/transactions/${index}/edit`}>
           <button>Edit</button>
         </Link>
 
