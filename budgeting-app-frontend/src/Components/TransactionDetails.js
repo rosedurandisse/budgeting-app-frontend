@@ -12,7 +12,7 @@ function TransactionDetails() {
     axios.get(`${URL}/transactions/${index}`).then((response) => {
       setTransaction(response.data);
     });
-  }, []);
+  }, [URL]);
 
   const handleDelete = () => {
     axios
@@ -20,6 +20,7 @@ function TransactionDetails() {
       .then(() => navigate("/transactions"));
   };
 
+  console.log(transaction);
   return (
     <div>
       <div>
