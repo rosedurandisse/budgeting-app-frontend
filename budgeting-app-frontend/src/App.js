@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Transactions from "./Pages/Index";
 import TransactionDetails from "./Pages/Show";
 import TransactionEdit from "./Pages/Edit";
+import NewTransaction from "./Pages/New";
 
 //import the NacNar
 import NavBar from "./Components/NavBar";
@@ -28,6 +29,10 @@ function App() {
             <Route
               path="/transactions/:index/edit"
               element={<TransactionEdit />}
+            ></Route>
+            <Route
+              path="/transactions/new"
+              element={<NewTransaction />}
             ></Route>
           </Routes>
         </main>
