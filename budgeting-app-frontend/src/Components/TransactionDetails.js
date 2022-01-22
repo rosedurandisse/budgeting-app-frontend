@@ -9,9 +9,15 @@ function TransactionDetails() {
   let { index } = useParams(); //this is actively changing so that is why let is used
 
   useEffect(() => {
-    axios.get(`${URL}/transactions/${index}`).then((response) => {
-      setTransaction(response.data);
-    });
+    axios
+      .get(`${URL}/transactions/${index}`)
+      .then((response) => {
+        setTransaction(response.data);
+        console.log(response.data);
+      })
+      .catch(() => {
+        navigate("/transactions");
+      });
   }, [URL]);
 
   const handleDelete = () => {
@@ -20,7 +26,6 @@ function TransactionDetails() {
       .then(() => navigate("/transactions"));
   };
 
-  console.log(transaction);
   return (
     <div>
       <div>
