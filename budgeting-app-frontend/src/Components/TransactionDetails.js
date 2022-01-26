@@ -31,7 +31,7 @@ function TransactionDetails() {
       <div>
         <h4>{transaction.date}</h4>
         <h5>{transaction.item_name}</h5>
-        <p>{transaction.amount}</p>
+        <p>${transaction.amount}</p>
         <p>{transaction.category}</p>
       </div>
 

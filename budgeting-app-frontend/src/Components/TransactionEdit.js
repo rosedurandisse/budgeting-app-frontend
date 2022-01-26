@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function TransactionEdit() {
   const URL = process.env.REACT_APP_API_URL;
@@ -8,7 +8,7 @@ function TransactionEdit() {
   let { index } = useParams();
   const [transaction, setTransaction] = useState({
     item_name: "",
-    amount: 0,
+    amount: "",
     date: "",
     from: "",
     category: "",
@@ -24,10 +24,17 @@ function TransactionEdit() {
         category: response.data.category,
       });
     });
-  }, [URL]);
+  }, [URL, index]);
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
+  };
+
+  const handleNumberChange = (event) => {
+    setTransaction({
+      ...transaction,
+      [event.target.id]: Number(event.target.value),
+    });
   };
 
   const handleSubmit = (event) => {
@@ -57,7 +64,7 @@ function TransactionEdit() {
           name="amount"
           value={transaction.amount}
           type="number"
-          onChange={handleTextChange}
+          onChange={handleNumberChange}
           placeholder="Amount"
           required
         />

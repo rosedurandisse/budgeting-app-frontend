@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewTransaction() {
   const [transaction, setTransaction] = useState({
     item_name: "",
-    amount: 0,
+    amount: "",
     date: "",
     from: "",
     category: "",
@@ -16,6 +16,13 @@ function NewTransaction() {
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
+  };
+
+  const handleNumberChange = (event) => {
+    setTransaction({
+      ...transaction,
+      [event.target.id]: Number(event.target.value),
+    });
   };
 
   const handleSubmit = (event) => {
@@ -45,7 +52,7 @@ function NewTransaction() {
           name="amount"
           value={transaction.amount}
           type="number"
-          onChange={handleTextChange}
+          onChange={handleNumberChange}
           placeholder="Amount"
           required
         />
