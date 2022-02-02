@@ -5,6 +5,7 @@ import "../Styles/Transactions.css";
 function Transactions() {
   const [transactions, setTransactions] = useState([]);
   const URL = process.env.REACT_APP_API_URL;
+  console.log(URL);
 
   useEffect(() => {
     axios.get(`${URL}/transactions`).then((response) => {
