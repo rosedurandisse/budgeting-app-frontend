@@ -8,7 +8,7 @@ function Transactions() {
   console.log(URL);
 
   useEffect(() => {
-    axios.get(`${URL}/transactions`).then((response) => {
+    axios.get(`${URL}transactions`).then((response) => {
       setTransactions(response.data);
     });
   }, [URL]);
